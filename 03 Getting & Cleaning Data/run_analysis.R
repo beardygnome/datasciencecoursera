@@ -60,7 +60,7 @@ all_data <- rbind(test_combined, train_combined)
 activities <- read.table("activity_labels.txt")
 
 #Merge the activity labels on to the main data frame...
-merge(activities, all_data, by.x="V1", by.y="Activity_Code") %>%
+x <- merge(activities, all_data, by.x="V1", by.y="Activity_Code") %>%
 #Drop the activity code (V1) and rename V2 to Activity...
     select(-V1) %>% rename(Activity=V2) %>%
 #Melt the data frame, keeping Activity and Subject as id variables...
@@ -73,3 +73,4 @@ merge(activities, all_data, by.x="V1", by.y="Activity_Code") %>%
     dcast(Activity + Subject ~ Variable, value.var="Mean") %>%
 #Finally, write out the result
     write.table("Means.txt", row.names=FALSE)
+print(names(x))

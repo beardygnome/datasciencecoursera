@@ -1,5 +1,10 @@
 #Explanation of run_analysis.R
 
+##Running the script
+In order to run the script, the working directory stated on line 5 must be
+changed to point at the downloaded 'UCI HAR Dataset' directory.  All files are
+read in and written out relative to this directory structure.
+
 ##Choosing the relevant variables
 I decided that I was going to include varaiables that were the mean or
 standard deviation of a signal and exclude the the signal averages calculated on
@@ -28,3 +33,8 @@ subject and activity, calculate all the means of the value column in one go,
 before casting the narrow dataset back to a wide one, with one row per subject
 per activity and one column for each of the means I had calculated, before
 writing the data out to a file.
+
+##Why the dataset is tidy
+The final dataset is tidy because each subject-activity combination is shown on
+a single row of the dataset and each of the calculated means is shown in its own
+column of the dataset.
